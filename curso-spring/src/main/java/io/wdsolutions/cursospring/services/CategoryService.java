@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import io.wdsolutions.cursospring.entities.Category;
-import io.wdsolutions.cursospring.entities.Order;
 import io.wdsolutions.cursospring.repository.CategoryRepository;
-import io.wdsolutions.cursospring.repository.OrderRepository;
 
 @Service
 public class CategoryService {

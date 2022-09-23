@@ -1,13 +1,18 @@
 package io.wdsolutions.cursospring.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "TB_CATEGORY")
@@ -19,6 +24,10 @@ public class Category implements Serializable{
 	private Long id;
 	
 	private String name;
+	
+	@JsonIgnore
+	@ManyToMany(mappedBy = "categories")
+	private Set<Product> products = new HashSet<>();
 
 	public Category() {
 		super();
@@ -28,6 +37,12 @@ public class Category implements Serializable{
 		super();
 		this.id = id;
 		this.name = name;
+	}
+	
+	
+
+	public Set<Product> getProducts() {
+		return products;
 	}
 
 	public Long getId() {
